@@ -1,4 +1,4 @@
-Simple job tracking app made with Django framework. CRUD functionalities for job postings and CRUD functionalities for notes for each post.
+Simple job tracking app made with Django framework. CRUD functionalities for job postings and CRUD functionalities for notes for each job post.
 
 <br/>
 <br/>
