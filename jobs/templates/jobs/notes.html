@@ -1,0 +1,15 @@
+{% block notes %}
+
+{% if notesFlag %}
+<h3>Note(s)</h3>
+{% include "jobs/createNote.html" %}
+<dl>
+    {% for note in notes %}
+        <dt>{{note.comment}}</dt>
+        <dd>{{note.date_created}}</dd>
+        <dd><a href="{% url 'updateNote' jobs.0.id note.id %}">Update</a> <a href="{% url 'deleteNote' note.id %}">Delete</a></dd>
+    {% endfor %}
+</dl>
+{% endif %}
+
+{% endblock %}

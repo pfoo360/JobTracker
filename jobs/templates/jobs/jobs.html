@@ -1,0 +1,36 @@
+{% extends "jobs/dashboard.html" %}
+
+{% block jobs %}
+<h2>Job(s)</h2>
+
+<table>
+    <tr>
+        <th></th>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Date Applied</th>
+        <th>Status</th>
+        <th>Update</th>
+        <th>Remove</th>
+        <th>Link</th>
+    </tr>
+
+    {% for job in jobs %}
+    <tr>
+        <td><a href="{% url 'job' job.id %}">View</a></td>
+        <td>{{job.company}}</td>
+        <td>{{job.role}}</td>
+        <td>{{job.date_applied}}</td>
+        <td>{{job.status}}</td>
+        <td><a href="{% url 'updateJob' job.id %}">Update</a></td>  
+        <td><a href="{% url 'deleteJob' job.id %}">Delete</a></td>  
+        {% if job.link %}
+            <td><a href="{{ job.link }}" target="_blank" rel="noreferrer noopener">{{job.link}}</a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+<p>COUNT: {{count}}</p>
+
+{% endblock %}

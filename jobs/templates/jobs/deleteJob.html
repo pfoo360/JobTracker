@@ -1,0 +1,10 @@
+{% extends 'jobs/main.html' %}
+
+{% block content %}
+    <p>Confirm delete for {{job.role}}@{{job.company}}?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'job' job.id %}">Cancel</a>
+        <input type="submit" Name="Confirm">
+    </form>
+{% endblock %}

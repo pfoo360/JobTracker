@@ -1,0 +1,10 @@
+{% extends 'jobs/main.html' %}
+
+{% block content %}
+    <p>Confirm delete for "{{note.comment}}" made on {{note.date_created}}?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'job' note.job.id %}">Cancel</a>
+        <input type="submit" Name="Confirm">
+    </form>
+{% endblock %}
