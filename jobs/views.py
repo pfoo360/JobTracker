@@ -7,7 +7,7 @@ def jobs(request, pk):
   company = request.GET.get("company")
   role = request.GET.get("role")
   status = request.GET.get("status")
-  jobs = Job.objects.all()
+  jobs = Job.objects.all().order_by("-date_applied")
   if company:
     jobs = jobs.filter(company=company)
   if role:
@@ -19,7 +19,7 @@ def jobs(request, pk):
 
 def job(request, pk):
   job = Job.objects.get(id=pk)
-  notes = job.note_set.all()
+  notes = job.note_set.all().order_by("-date_created")
   context = {"jobs": [job], "count": 1 if job else 0, "notesFlag": True, "notes": notes}
   return render(request, "jobs/jobs.html", context)
 
